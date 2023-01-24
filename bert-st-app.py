@@ -22,7 +22,7 @@ if num == list:
 else: 
   num_post = None
 
-sub_name = st.text_input()
+sub_name = st.text_input('Input Subreddit Name:')
 
 x = 0
 if st.button('run'):
