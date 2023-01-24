@@ -42,13 +42,13 @@ if x == 1:
     for submission in reddit.subreddit(sub_name).top(limit=num_post):
         for comment in submission.comments:
             sub_body.append(str(comment.body))
-
+    print('praw done')
     topic_model = BERTopic(embedding_model="all-MiniLM-L6-v2")
 
     topics, probs = topic_model.fit_transform(sub_body)
-
+    print('fit done')
     df = pd.DataFrame(topic_model.get_document_info(sub_body))
-
+    print('df done')
     csv = df.to_csv().encode('utf-8')
 
     if csv != None:                                                                        
