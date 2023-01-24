@@ -48,11 +48,9 @@ if x == 1:
 
     df = pd.DataFrame(topic_model.get_document_info(sub_body))
 
-    file_name = sub_name + '_topic_modeling.csv'
+    csv = df.to_csv().encode('utf-8')
 
-    csv = df.to_csv(file_name).encode('utf-8')
-
-    if csv != None:                                                                         # Once the csv variable no longer equals none, the button to download the csv output will appear giving users the ability to download the results
+    if csv != None:                                                                        
         st.download_button(
             label="Download data as CSV",
             data=csv,
