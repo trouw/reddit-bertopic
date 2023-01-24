@@ -40,7 +40,8 @@ if x == 1:
     sub_body = []
 
     for submission in reddit.subreddit(sub_name).top(limit=num_post):
-        sub_body.append(str(submission.selftext))
+        for comment in submission.comments:
+            sub_body.append(str(comment.body))
 
     topic_model = BERTopic(embedding_model="all-MiniLM-L6-v2")
 
